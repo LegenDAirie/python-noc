@@ -17,9 +17,7 @@ class Ball(object):
         """ updates the objects """
         self.mouse = Vector(mouseX, mouseY)
 
-        self.dir = self.mouse - self.location
-        self.dir.normalize()
-        self.dir * .5
+        self.dir = (self.mouse - self.location).normalize() * .5
 
         self.acceleration = self.dir
         self.velocity += self.acceleration
