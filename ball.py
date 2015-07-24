@@ -38,7 +38,6 @@ class Ball(object):
         # print self.acceleration.x
         # print self.acceleration
         # self.velocity.add(self.acceleration)
-        # print self.velocity.x
         # print(math.sqrt((self.velocity.x ** 2) + (self.velocity.y ** 2)))
         # print(math.sqrt((self.velocity.x ** 2) + (self.velocity.y ** 2)))
         # if self.velocity.x < 5 and self.velocity.x > -5 and self.velocity.y < 5 and self.velocity.y > -5:
