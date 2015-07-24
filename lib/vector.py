@@ -114,9 +114,8 @@ class Vector(object):
         """ reduces the vector to unit vector form, a magnitude of 1 """
         hypotenuse = self.magnitude()
         if hypotenuse != 0:
-            self.x /= hypotenuse
-            self.y /= hypotenuse
-            return Vector(self.x, self.y)
+            return Vector(self.x / hypotenuse, self.y / hypotenuse)
+            # return Vector(self.x, self.y)
 
     def setMag(self, value):
         """ changes the magnitude of the current vector to a number specified """
