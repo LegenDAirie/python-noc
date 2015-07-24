@@ -11,6 +11,7 @@ class Ball(object):
 
 
     def update(self,mouseX, mouseY):
+        """ updates the objects """
         self.mouse = Vector(mouseX, mouseY)
 
         self.dir = self.mouse - self.location
@@ -24,13 +25,16 @@ class Ball(object):
         self.location += self.velocity
 
     def draw(self, g):
+        """ draws objects to the screen """
+
+        # sets the color and opacity of the objects outline
         g.stroke(0, 0, 0, 1)
+
+        # sets the thickness of the outline
         g.strokeWeight(1)
 
-        g.fill(1, 0, 1, 0.75)
-        g.circle(self.mouse.x, self.mouse.y, 20)
-
+        # sets the color fill of the object
         g.fill(0, 1, 1, 0.75)
-        g.circle(self.location.x, self.location.y, 20)
 
-        # g.line(self.center.x, self.center.y, self.center.x + self.dir.x, self.center.y + self.dir.y)
+        # draws a cirlce
+        g.circle(self.location.x, self.location.y, 20)

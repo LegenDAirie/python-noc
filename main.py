@@ -7,15 +7,18 @@ class MyDrawing(Sketchy):
 
     def setup(self):
         width, height = [600, 400]
-        self.ball = Ball(width, height)
+        self.balls = []
+        for i in range(0,3):
+            self.balls.append(Ball(width, height))
         self.size(width, height)
 
     def update(self):
-
-        self.ball.update(self.mouseX, self.mouseY)
+        for i in range(len(self.balls)):
+            self.balls[i].update(self.mouseX, self.mouseY)
 
     def draw(self, g):
         g.background(1, 1, 1)
-        self.ball.draw(g)
+        for i in range(len(self.balls)):
+            self.balls[i].draw(g)
 
 MyDrawing()
