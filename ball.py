@@ -6,7 +6,7 @@ import math
 
 class Ball(object):
     def __init__(self, width, height):
-         self.location = Vector(width/2, height/2)
+         self.location = Vector(randint(0,width), randint(0,height))
          self.velocity = Vector(0, 0)
 
 
