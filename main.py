@@ -1,15 +1,20 @@
 from sketchy import Sketchy
 from ball import Ball
+from vector import Vector
 
 class MyDrawing(Sketchy):
 
     def setup(self):
-        return
+        width, height = [600, 400]
+        self.ball = Ball(width, height)
+        self.size(width, height)
 
     def update(self):
-        return
+
+        self.ball.update(self.mouseX, self.mouseY)
 
     def draw(self, g):
-        return
+        g.background(1, 1, 1)
+        self.ball.draw(g)
 
 MyDrawing()
