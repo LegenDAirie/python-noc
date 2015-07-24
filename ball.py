@@ -15,44 +15,16 @@ class Ball(object):
     def update(self,mouseX, mouseY):
         self.mouse = Vector(mouseX, mouseY)
 
-        # print self.mouse.x
         self.dir = self.mouse - self.location
         self.dir.norm()
         self.dir * .5
         self.acceleration = self.dir
 
-        # print self.dir.get_mag()
-        # self.mult(10)
-        # print self.dir.x
 
-        # self.dir = self.mouse.sub(self.center)
-        # print self.mouse.x
-        # self.dir.norm()
-        # print(math.sqrt((self.dir.x ** 2) + (self.dir.y ** 2)))
-        # print self.dir.x
-        # self.dir.mult(1)
-        # self.velocity = Vector(1, 1)
-
-
-        # self.acceleration = self.dir
-        # print self.acceleration.x
-        # print self.acceleration
-        # self.velocity.add(self.acceleration)
-        # print(math.sqrt((self.velocity.x ** 2) + (self.velocity.y ** 2)))
-        # print(math.sqrt((self.velocity.x ** 2) + (self.velocity.y ** 2)))
-        # if self.velocity.x < 5 and self.velocity.x > -5 and self.velocity.y < 5 and self.velocity.y > -5:
-            # print "k"
-        # else:
-            # return Vector(0, 0)
-        # self.velocity += self.acceleration
-        # self. velocity = self.velocity.limit(10)
         self.velocity += self.acceleration
         self.velocity.limit(13)
         self.location += self.velocity
-        # print self.acceleration.y
-
-        # self.velocity.limit(20)
-
+        
     def draw(self, g):
         g.fill(1, 0, 1, 0.75)
         g.circle(self.mouse.x, self.mouse.y, 20)
