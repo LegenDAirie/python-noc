@@ -1,3 +1,6 @@
+import sys
+sys.path.append("../../lib")
+
 from sketchy import Sketchy
 from ball import Ball
 from vector import Vector

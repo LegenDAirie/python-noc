@@ -1,3 +1,6 @@
+import sys
+sys.path.append("../../lib")
+
 from random import randint, random
 from vector import Vector
 from sketchy import Sketchy
