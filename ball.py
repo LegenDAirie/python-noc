@@ -1,6 +1,7 @@
 from random import randint, random
 from vector import Vector
 from sketchy import Sketchy
+from physics import limit
 import math
 
 class Ball(object):
@@ -18,7 +19,8 @@ class Ball(object):
 
         self.acceleration = self.dir
         self.velocity += self.acceleration
-        self.velocity.limit(13)
+        # self.velocity.limit(13)
+        limit(self.velocity, 13)
         self.location += self.velocity
 
     def draw(self, g):
