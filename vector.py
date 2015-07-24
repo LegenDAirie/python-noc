@@ -60,14 +60,14 @@ class Vector(object):
         return self.mul(scalar)
 
     # a *= scalar
-    def multAccumulate(self, scalar):
+    def mulAccumulate(self, scalar):
         self.x *= x
         self.y *= y
         return self
 
     # a *= scalar
     def __imul__(self, scalar):
-        return self.multAccumulate(scalar)
+        return self.mulAccumulate(scalar)
 
     # div(scalar)
     def div(self, scalar):
@@ -88,26 +88,26 @@ class Vector(object):
         return self.divAccumulate(scalar)
 
     # get_mag()
-    def getMag(self):
-        hyp = math.sqrt((self.x ** 2) + (self.y ** 2))
-        return hyp
+    def magnitude(self):
+        hypotenuse = math.sqrt((self.x ** 2) + (self.y ** 2))
+        return hypotenuse
 
-    # norm()
-    def norm(self):
-        hyp = self.getMag()
-        if hyp != 0:
-            self.x /= hyp
-            self.y /= hyp
+    # normalize()
+    def normalize(self):
+        hypotenuse = self.magnitude()
+        if hypotenuse != 0:
+            self.x /= hypotenuse
+            self.y /= hypotenuse
             return Vector(self.x, self.y)
 
     def setMag(self, value):
-        mag = self.getMag()
+        mag = self.magnitude()
         self.x *= value / mag
         self.y *= value / mag
         return Vector(self.x, self.y)
 
     def limit(self, topSpeed):
-        if self.getMag() > topSpeed:
+        if self.magnitude() > topSpeed:
             return self.setMag(topSpeed)
         else:
             return self
