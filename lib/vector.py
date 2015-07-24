@@ -115,7 +115,8 @@ class Vector(object):
         hypotenuse = self.magnitude()
         if hypotenuse != 0:
             return Vector(self.x / hypotenuse, self.y / hypotenuse)
-            # return Vector(self.x, self.y)
+        else:
+            return Vector(0, 0)
 
     def setMag(self, value):
         """ changes the magnitude of the current vector to a number specified """
