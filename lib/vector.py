@@ -72,8 +72,8 @@ class Vector(object):
     # a *= scalar
     def mulAccumulate(self, scalar):
         """ returns the current vector after it has been multiplied by a scalar"""
-        self.x *= x
-        self.y *= y
+        self.x *= scalar
+        self.y *= scalar
         return self
 
     # a *= scalar
