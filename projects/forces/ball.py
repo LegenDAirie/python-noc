@@ -43,7 +43,7 @@ class Ball(object):
         g.fill(self.red, self.green, self.blue, 0.75)
 
         # draws a cirlce
-        g.circle(self.location.x, self.location.y, 20)
+        g.circle(self.location.x, self.location.y, self.mass*10)
 
     def checkEdges(self, width, height):
         if self.location.x > width or self.location.x < 0:
