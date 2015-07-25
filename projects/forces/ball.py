@@ -12,16 +12,18 @@ class Ball(object):
         self.location = Vector(randint(0, width), randint(0, height))
         self.velocity = Vector(0, 0)
         self.acceleration = Vector(0, 0)
-        self.wind = Vector(.01, 0)
-        self.gravity = Vector(0, .1)
-
         self.red = randint(0,1)
         self.green = randint(0,1)
         self.blue = randint(0,1)
+        self.mass = randint(1,10)
+
+        # force vectors
+        self.wind = Vector(.01, 0)
+        self.gravity = Vector(0, .1)
 
     def update(self, width, height):
         """updates the objects"""
-        applyFroce(self.acceleration, self.wind, self.gravity)
+        applyFroce(self.acceleration, self.mass, self.wind, self.gravity)
 
         self.velocity += self.acceleration
         self.checkEdges(width, height)

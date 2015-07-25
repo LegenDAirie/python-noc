@@ -15,7 +15,7 @@ class MyDrawing(Sketchy):
         self.size(width, height)
         print len(self.balls)
 
-    def update(self,):
+    def update(self):
         width, height = [600, 400]
         for i in range(len(self.balls)):
             self.balls[i].update(width, height)
