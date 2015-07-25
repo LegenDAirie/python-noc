@@ -9,17 +9,19 @@ import math
 
 class Ball(object):
     def __init__(self, width, height):
-        self.location = Vector(randint(0, width), randint(0, height))
+        self.location = Vector(randint(0, width), height/2)
         self.velocity = Vector(0, 0)
         self.acceleration = Vector(0, 0)
         self.red = randint(0,1)
         self.green = randint(0,1)
         self.blue = randint(0,1)
-        self.mass = randint(1,10)
+        self.mass = randint(1,5)
 
         # force vectors
         self.wind = Vector(.01, 0)
-        self.gravity = Vector(0, .1)
+        
+        # scaling gravity by mass to be more accurate
+        self.gravity = Vector(0, .1*self.mass)
 
     def update(self, width, height):
         """updates the objects"""
