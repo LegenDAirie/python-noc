@@ -19,7 +19,7 @@ class Ball(object):
 
         # force vectors
         self.wind = Vector(.01, 0)
-        
+
         # scaling gravity by mass to be more accurate
         self.gravity = Vector(0, .1*self.mass)
 
@@ -28,8 +28,8 @@ class Ball(object):
         applyFroce(self.acceleration, self.mass, self.wind, self.gravity)
 
         self.velocity += self.acceleration
-        self.checkEdges(width, height)
         self.location += self.velocity
+        self.checkEdges(width, height)
         self.acceleration *= 0
 
     def draw(self, g):
@@ -48,7 +48,15 @@ class Ball(object):
         g.circle(self.location.x, self.location.y, self.mass*10)
 
     def checkEdges(self, width, height):
-        if self.location.x > width or self.location.x < 0:
+        if self.location.x > width:
+            self.location.x = width
             self.velocity.x *= -1
-        if self.location.y > height or self.location.y < 0:
+        if self.location.x < 0:
+            self.location.x = 0
+            self.velocity.x *= -1
+        if self.location.y > height:
+            self.location.y = height
             self.velocity.y *= -1
+        if self.location.y < 0:
+            self.location.y = 0
+            self.velocity *= -1
