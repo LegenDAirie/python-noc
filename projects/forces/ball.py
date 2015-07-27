@@ -19,13 +19,15 @@ class Ball(object):
 
         # force vectors
         self.wind = Vector(.01, 0)
-
         # scaling gravity by mass to be more accurate
         self.gravity = Vector(0, .1*self.mass)
 
     def update(self, width, height):
         """updates the objects"""
-        applyFroce(self.acceleration, self.mass, self.wind, self.gravity)
+        self.friction = Vector(self.velocity.x, self.velocity.y)
+        self.friction.normalize
+        self.friction *= -.01
+        applyFroce(self.acceleration, self.mass, self.wind, self.gravity, self.friction)
 
         self.velocity += self.acceleration
         self.location += self.velocity
