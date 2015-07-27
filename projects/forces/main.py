@@ -4,6 +4,7 @@ sys.path.append("../../lib")
 from sketchy import Sketchy
 from vector import Vector
 from ball import Ball
+from liquid import Liquid
 
 class MyDrawing(Sketchy):
 
@@ -13,7 +14,7 @@ class MyDrawing(Sketchy):
         for i in range(0, 10):
             self.balls.append(Ball(width,height))
         self.size(width, height)
-        print len(self.balls)
+        # self.liquid = Liquid(width/2, height/2, width, height)
 
     def update(self):
         width, height = [600, 400]
@@ -24,5 +25,6 @@ class MyDrawing(Sketchy):
         g.background(1, 1, 1)
         for i in range(len(self.balls)):
             self.balls[i].draw(g)
+        # self.liquid.draw(g)
 
 MyDrawing()

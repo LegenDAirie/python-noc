@@ -4,7 +4,7 @@ sys.path.append("../../lib")
 from random import randint, random
 from vector import Vector
 from sketchy import Sketchy
-from physics import applyFroce
+from physics import *
 import math
 
 class Ball(object):
@@ -31,7 +31,7 @@ class Ball(object):
 
         self.velocity += self.acceleration
         self.location += self.velocity
-        self.checkEdges(width, height)
+        checkEdges(self, width, height)
         self.acceleration *= 0
 
     def draw(self, g):
@@ -48,17 +48,3 @@ class Ball(object):
 
         # draws a cirlce
         g.circle(self.location.x, self.location.y, self.mass*10)
-
-    def checkEdges(self, width, height):
-        if self.location.x > width:
-            self.location.x = width
-            self.velocity.x *= -1
-        if self.location.x < 0:
-            self.location.x = 0
-            self.velocity.x *= -1
-        if self.location.y > height:
-            self.location.y = height
-            self.velocity.y *= -1
-        if self.location.y < 0:
-            self.location.y = 0
-            self.velocity *= -1
