@@ -7,5 +7,5 @@ class Liquid(object):
 
     def draw(self, g):
         k = 1
-        # self.fill(0, 0, 0, .75)
-        # self.rect(self.x, self.y, self.w, self.h)
+        # g.fill(0, 0, 0, .75)
+        # g.rect(self.x, self.y, self.w, self.h)

@@ -24,10 +24,10 @@ class Ball(object):
 
     def update(self, width, height):
         """updates the objects"""
-        self.friction = Vector(self.velocity.x, self.velocity.y)
-        self.friction.normalize
-        self.friction *= -.01
-        applyFroce(self.acceleration, self.mass, self.wind, self.gravity, self.friction)
+        # self.friction = Vector(self.velocity.x, self.velocity.y)
+        # self.friction.normalize
+        # self.friction *= -.01
+        applyFroce(self.acceleration, self.mass, self.wind, self.gravity)
 
         self.velocity += self.acceleration
         self.location += self.velocity
