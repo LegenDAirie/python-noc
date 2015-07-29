@@ -14,7 +14,6 @@ class MyDrawing(Sketchy):
         for i in range(0, 10):
             self.balls.append(Ball(width,height))
         self.size(width, height)
-        self.liquid = Liquid(width/2, height/2, width, height)
 
     def update(self):
         width, height = [600, 400]
@@ -23,10 +22,7 @@ class MyDrawing(Sketchy):
 
     def draw(self, g):
         g.background(1, 1, 1)
-
-        # getting an error when i try and draw liquid
-        # self.liquid.draw(g)
-
+        
         for i in range(len(self.balls)):
             self.balls[i].draw(g)
 
