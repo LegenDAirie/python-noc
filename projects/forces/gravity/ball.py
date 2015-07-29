@@ -11,8 +11,8 @@ import random
 class Ball(object):
     def __init__(self, width, height):
         self.location = Vector(randint(0, width), randint(0, height))
-        # self.velocity = Vector(random.uniform(-1, 1), random.uniform(-1, 1))
-        self.velocity = Vector(0,0)
+        self.velocity = Vector(random.uniform(-1, 1), random.uniform(-1, 1))
+        # self.velocity = Vector(0,0)
         self.acceleration = Vector(0, 0)
         self.mass = randint(1,5)
         self.g = .1
