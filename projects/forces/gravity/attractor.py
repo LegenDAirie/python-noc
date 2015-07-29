@@ -10,7 +10,7 @@ import math
 class Attractor(object):
     def __init__(self, width, height):
         self.location = Vector(width/2, height/2)
-        self.mass = 10
+        self.mass = 15
         self.g = .1
 
     def attract(self, ball):

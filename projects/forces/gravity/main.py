@@ -22,6 +22,10 @@ class MyDrawing(Sketchy):
 
     def update(self):
         for i in range(len(self.balls)):
+            for j in range(len(self.balls)):
+                if i != j:
+                    self.force = self.balls[j].attract(self.balls[i])
+                    applyForce(self.balls[i], self.force)
             self.force = self.a.attract(self.balls[i])
             applyForce(self.balls[i], self.force)
             self.balls[i].update(600, 400)
