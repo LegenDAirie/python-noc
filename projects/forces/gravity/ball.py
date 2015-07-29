@@ -35,4 +35,4 @@ class Ball(object):
         g.fill(0, 1, 1, 0.2)
 
         # draws a cirlce
-        g.circle(self.location.x, self.location.y, 4*self.mass)
+        g.circle(self.location.x, self.location.y, 10 * math.sqrt(self.mass/math.pi))

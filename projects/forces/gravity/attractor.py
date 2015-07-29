@@ -4,14 +4,14 @@ sys.path.append("../../../lib")
 from random import randint, random
 from vector import Vector
 from sketchy import Sketchy
-from physics import limit
+from physics import *
 import math
 
 class Attractor(object):
     def __init__(self, width, height):
         self.location = Vector(width/2, height/2)
-        self.mass = 5
-        self.g = .4
+        self.mass = 10
+        self.g = .1
 
     def attract(self, ball):
         self.force = self.location - ball.location
@@ -31,4 +31,4 @@ class Attractor(object):
         g.fill(0, 0, 0, .65)
 
         # draws a cirlce
-        g.circle(self.location.x, self.location.y, 4*self.mass)
+        g.circle(self.location.x, self.location.y, 15 * math.sqrt(self.mass/math.pi))

@@ -1,4 +1,5 @@
 from vector import *
+import math
 def limit(vector, topSpeed):
     """ limits a vectors magnitude """
     if vector.magnitude() > topSpeed:
