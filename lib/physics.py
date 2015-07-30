@@ -1,3 +1,5 @@
+from vector import *
+import math
 def limit(vector, topSpeed):
     """ limits a vectors magnitude """
     if vector.magnitude() > topSpeed:
@@ -8,7 +10,7 @@ def limit(vector, topSpeed):
 def applyForce(vector, *arg):
     """accumulates all the force vectors together before applying them"""
     for i in range(len(arg)):
-        vector.acceleration += arg[i]/vector.mass
+        vector.acceleration += arg[i] / vector.mass
     return vector
 
 def checkEdges(thing, width, height):
