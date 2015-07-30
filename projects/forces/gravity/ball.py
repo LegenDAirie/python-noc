@@ -12,14 +12,12 @@ class Ball(object):
     def __init__(self, width, height):
         self.location = Vector(randint(0, width), randint(0, height))
         self.velocity = Vector(random.uniform(-1, 1), random.uniform(-1, 1))
-        # self.velocity = Vector(0,0)
         self.acceleration = Vector(0, 0)
         self.mass = randint(1,10)
         self.g = .1
 
     def update(self, width, height):
         """updates the objects"""
-
         self.velocity += self.acceleration
         self.location += self.velocity
         self.acceleration *= 0
@@ -29,7 +27,7 @@ class Ball(object):
         self.force = self.location - ball.location
         self.distance = self.force.magnitude()
         self.force.normalize()
-        self.strength = (self.g * self.mass * ball.mass) / (self.distance **2)
+        self.strength = (self.g * self.mass * ball.mass) / (self.distance ** 2)
         self.force *= self.strength
         return self.force
 

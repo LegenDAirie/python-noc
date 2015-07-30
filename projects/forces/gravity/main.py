@@ -8,7 +8,6 @@ from attractor import Attractor
 from physics import *
 
 class Gravity(Sketchy):
-
     def setup(self):
         width, height = [600, 400]
 
