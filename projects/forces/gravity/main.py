@@ -7,7 +7,7 @@ from ball import Ball
 from attractor import Attractor
 from physics import *
 
-class MyDrawing(Sketchy):
+class Gravity(Sketchy):
 
     def setup(self):
         width, height = [600, 400]
@@ -36,4 +36,4 @@ class MyDrawing(Sketchy):
             self.balls[i].draw(g)
         self.a.draw(g)
 
-MyDrawing()
+Gravity()
