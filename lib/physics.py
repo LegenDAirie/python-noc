@@ -5,10 +5,9 @@ def limit(vector, topSpeed):
     else:
         return vector
 
-def applyFroce(vector, *arg):
+def applyForce(vector, *arg):
     """accumulates all the force vectors together before applying them"""
     for i in range(len(arg)):
-        # print type(i)
         vector.acceleration += arg[i]/vector.mass
     return vector
 

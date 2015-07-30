@@ -7,25 +7,24 @@ from ball import Ball
 from liquid import Liquid
 from physics import *
 
-class MyDrawing(Sketchy):
+class Resistance(Sketchy):
 
     def setup(self):
         width, height = [600, 400]
         self.liquid = Liquid(width/2, height/2, width, height)
         self.balls = []
         for i in range(0, 10):
-            self.balls.append(Ball(width,height))
+            self.balls.append(Ball(width, height))
         self.size(width, height)
 
     def update(self):
         width, height = [600, 400]
         for i in range(len(self.balls)):
-            # print self.balls[i]
             if self.liquid.isInside(self.balls[i]):
                 self.balls[i].friction = self.liquid.resist(self.balls[i])
-                applyFroce(self.balls[i], self.balls[i].wind, self.balls[i].gravity, self.balls[i].friction)
+                applyForce(self.balls[i], self.balls[i].wind, self.balls[i].gravity, self.balls[i].friction)
             else:
-                applyFroce(self.balls[i], self.balls[i].wind, self.balls[i].gravity)
+                applyForce(self.balls[i], self.balls[i].wind, self.balls[i].gravity)
             self.balls[i].update(width, height)
             checkEdges(self.balls[i], width, height)
 
@@ -37,4 +36,4 @@ class MyDrawing(Sketchy):
         for i in range(len(self.balls)):
             self.balls[i].draw(g)
 
-MyDrawing()
+Resistance()
