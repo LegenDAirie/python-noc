@@ -9,7 +9,7 @@ import math
 
 class Ball(object):
     def __init__(self, width, height):
-        self.location = Vector(randint(0, width), height/2)
+        self.location = Vector(randint(0, width), height/4)
         self.velocity = Vector(0, 0)
         self.acceleration = Vector(0, 0)
         self.red = randint(0,1)
@@ -24,14 +24,8 @@ class Ball(object):
 
     def update(self, width, height):
         """updates the objects"""
-        # self.friction = Vector(self.velocity.x, self.velocity.y)
-        # self.friction.normalize
-        # self.friction *= -.01
-        applyFroce(self.acceleration, self.mass, self.wind, self.gravity)
-
         self.velocity += self.acceleration
         self.location += self.velocity
-        checkEdges(self, width, height)
         self.acceleration *= 0
 
     def draw(self, g):
