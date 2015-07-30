@@ -15,7 +15,7 @@ class MyDrawing(Sketchy):
         self.a = Attractor(width, height)
 
         self.balls = []
-        for i in range(0, 15):
+        for i in range(0, 10):
             self.balls.append(Ball(width,height))
 
         self.size(width, height)

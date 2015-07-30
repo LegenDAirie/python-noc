@@ -14,7 +14,7 @@ class Ball(object):
         self.velocity = Vector(random.uniform(-1, 1), random.uniform(-1, 1))
         # self.velocity = Vector(0,0)
         self.acceleration = Vector(0, 0)
-        self.mass = randint(1,5)
+        self.mass = randint(1,10)
         self.g = .1
 
     def update(self, width, height):

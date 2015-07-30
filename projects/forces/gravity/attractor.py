@@ -19,7 +19,6 @@ class Attractor(object):
         self.force.normalize()
         self.strength = (self.g * self.mass * ball.mass) / (self.distance **2)
         self.force *= self.strength
-        # self.force *= -1
         return self.force
 
     def draw(self, g):
