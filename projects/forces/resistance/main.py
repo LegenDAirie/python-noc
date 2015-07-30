@@ -1,5 +1,5 @@
 import sys
-sys.path.append("../../lib")
+sys.path.append("../../../lib")
 
 from sketchy import Sketchy
 from vector import Vector
@@ -22,7 +22,7 @@ class MyDrawing(Sketchy):
 
     def draw(self, g):
         g.background(1, 1, 1)
-        
+
         for i in range(len(self.balls)):
             self.balls[i].draw(g)
 
