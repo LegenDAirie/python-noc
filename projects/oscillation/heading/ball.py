@@ -9,7 +9,7 @@ import math
 
 class Ball(object):
     def __init__(self, width, height):
-        # self.angle = 0
+        self.angle = 0
         # self.angleVelocity = 0
         # self.angleAcceleration = 0.05
         self.width = 40
