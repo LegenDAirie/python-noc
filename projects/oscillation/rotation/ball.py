@@ -13,7 +13,7 @@ class Ball(object):
         self.angleVelocity = 0
         self.angleAcceleration = 0.05
         self.width = 50
-        self.height = 50
+        self.height = 10
         self.location = Vector(randint(0, width - self.width), randint(0, height - self.height))
         # self.location = Vector(width/2, height/2)
         self.velocity = Vector(0, 0)
