@@ -43,4 +43,4 @@ class Square(object):
         g.fill(0, 1, 1, 0.75)
 
         # draws a cirlce
-        g.rect(self.location.x + (width/2), self.location.y + (height/2), 20, 20)
+        g.rect(self.location.x + (width / 2), self.location.y + (height / 2), 20, 20)

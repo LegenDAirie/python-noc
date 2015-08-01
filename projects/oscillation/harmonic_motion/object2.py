@@ -30,7 +30,10 @@ class Rectangle(object):
         g.stroke(0, 0, 0, 1)
         # sets the color fill of the object
         g.fill(0, 1, 1, 0.75)
-        g.translate(width/2, height/2)
+
+        g.push()
+        g.translate(width / 8, height / 8)
 
         g.line(0, 0, self.location.x, 0)
         g.circle(self.location.x, 0, 20)
+        g.pop()

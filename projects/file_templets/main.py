@@ -12,7 +12,7 @@ class MyDrawing(Sketchy):
         self.balls = []
         for i in range(0, 1):
             self.balls.append(Ball(width,height))
-            self.size(width, height)
+        self.size(width, height)
 
     def update(self):
         for i in range(len(self.balls)):
