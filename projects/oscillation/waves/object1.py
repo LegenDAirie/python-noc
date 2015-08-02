@@ -8,8 +8,8 @@ from physics import limit
 import math
 
 class Ball(object):
-    def __init__(self, width, height):
-        self.location = Vector(randint(0, width), randint(0, height))
+    def __init__(self, width, height, y, x):
+        self.location = Vector(x, y)
         self.velocity = Vector(0, 0)
         self.acceleration = Vector(0, 0)
 
@@ -19,7 +19,7 @@ class Ball(object):
         self.velocity += self.acceleration
         self.location += self.velocity
 
-    def draw(self, g):
+    def draw(self, g, width, height):
         """ draws objects to the screen """
 
         # sets the color and opacity of the objects outline
@@ -29,7 +29,7 @@ class Ball(object):
         g.strokeWeight(1)
 
         # sets the color fill of the object
-        g.fill(0, 1, 1, 0.75)
+        g.fill(0, 0, 0, 0.1)
 
         # draws a cirlce
-        g.circle(self.location.x, self.location.y, 20)
+        g.circle(self.location.x, self.location.y + height / 2, 24)
