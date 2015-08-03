@@ -8,16 +8,22 @@ from physics import limit
 import math
 
 class Ball(object):
-    def __init__(self, width, height, y, x):
-        self.location = Vector(x, y)
-        self.velocity = Vector(0, 0)
-        self.acceleration = Vector(0, 0)
+    def __init__(self, width, height, angle, x, angleUpdate):
+        # angle stuff
+        self.amp = 150
+        self.angle = angle
+        self.angleUpdate = angleUpdate
+
+        # movement stuff
+        self.location = Vector(x, 0)
 
     def update(self):
         """updates the objects"""
 
-        self.velocity += self.acceleration
-        self.location += self.velocity
+        #updates the angle
+        self.location.y = self.amp * math.sin(self.angle)
+        self.angle += self.angleUpdate
+
 
     def draw(self, g, width, height):
         """ draws objects to the screen """

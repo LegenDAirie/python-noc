@@ -12,15 +12,13 @@ class Wave(Sketchy):
         width, height = [600, 400]
         self.balls = []
         angle = 0
-        angleVel = 0.2
-        amp = 100
-        self.x = 10
+        angleInc = .2
+        angleUpdate = .05
+        x = 0
         for i in range(0, 25):
-            self.y = amp * math.sin(angle)
-            self.balls.append(Ball(width, height, self.y, self.x))
-            self.x += 25
-            print self.x
-            angle += angleVel
+            self.balls.append(Ball(width, height, angle, x, angleUpdate))
+            angle += angleInc
+            x += 25
         self.size(width, height)
 
     def update(self):
