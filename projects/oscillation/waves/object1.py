@@ -29,8 +29,6 @@ class Ball(object):
         self.location.y = self.amp * math.sin(self.angle)
         self.angle += self.angleUpdate
         self.velocity.y = self.location.y - self.oldLocation.y
-        # self.tan = math.tan(self.angle)
-        print self.velocity.y
         self.heading = math.atan2(self.velocity.y, 5)
 
     def draw(self, g, width, height):
@@ -45,8 +43,6 @@ class Ball(object):
         # sets the color fill of the object
         g.fill(0, 0, 0, 0.1)
 
-        # draws a cirlce
-        # g.rect(self.location.x, self.location.y + height / 2, 24, 10)
 
         g.push()
         g.translate(self.location.x + 12, self.location.y + 5 + (height / 2))
