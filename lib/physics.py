@@ -13,7 +13,7 @@ def applyForce(vector, *arg):
         vector.acceleration += arg[i] / vector.mass
     return vector
 
-def checkEdges(thing, width, height):
+def reflectEdges(thing, width, height):
     """keeps an object inside the screen"""
     if thing.location.x > width:
         thing.location.x = width

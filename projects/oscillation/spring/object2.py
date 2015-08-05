@@ -4,25 +4,34 @@ sys.path.append("../../../lib")
 from random import randint, random
 from vector import Vector
 from sketchy import Sketchy
-from physics import limit
+from physics import *
 # from object1 import Spring
 import math
 
 class Ball(object):
     def __init__(self, width, height):
-        self.location = Vector(0, 0)
+        self.width = width
+        self.height = height
+        self.location = Vector(100 * math.cos(randint(1, 5) * math.pi / 5) + (width / 2), 100 * math.sin(randint(1, 5) * math.pi / 5) + (height /2))
         self.velocity = Vector(0, 0)
         self.acceleration = Vector(0, 0)
 
         # forces
-        self.gravity = Vector(0, 1)
+        self.mass = 3
+        self.gravity = Vector(0, 1 * self.mass)
 
     def update(self):
         """updates the location of the object"""
 
-        applyForce(self, self.gravity, self.Spring)
+        applyForce(self, self.gravity)
         self.velocity += self.acceleration
+
+        # using this as a kind of friction so it doesn't bounce forever
+        self.velocity *= .99
+
         self.location += self.velocity
+
+        self.acceleration *= 0
 
     def draw(self, g):
         # sets the color and opacity of the objects outline
