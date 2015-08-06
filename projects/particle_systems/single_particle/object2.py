@@ -7,7 +7,7 @@ from sketchy import Sketchy
 from physics import limit
 import math
 
-class Ball(object):
+class System(object):
     def __init__(self, width, height):
         self.location = Vector(randint(0, width), randint(0, height))
         self.velocity = Vector(0, 0)
