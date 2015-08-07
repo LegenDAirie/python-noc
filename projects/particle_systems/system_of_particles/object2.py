@@ -5,32 +5,36 @@ from random import randint, random
 from vector import Vector
 from sketchy import Sketchy
 from physics import limit
+from object1 import Particle
 import math
 
 class ParticleSystem(object):
-    def __init__(self):
-        pass
-        # self.velocity = Vector(0, 0)
-        # self.acceleration = Vector(0, 0)
+    def __init__(self, width, height, mouseX, mouseY):
+
+        self.width = width
+        self.height = height
+        self.origin = Vector(mouseX, mouseY)
+        self.particles = []
+        self.particles.append(Particle(width, height, self.origin))
 
     def update(self, mouseX, mouseY):
         """updates the objects"""
         self.origin = Vector(mouseX, mouseY)
 
-        # self.velocity += self.acceleration
-        # self.origin += self.velocity
+        # Particle update stuff by iterating backwards
+        for i in range(len(self.particles) -1, -1 ,-1):
+            self.particles[i].update()
+
+            # becks to see if the particle is dead
+            if self.particles[i].isDead():
+
+                # removes particle
+                self.particles.remove(self.particles[i])
+        self.particles.append(Particle(self.width, self.height, self.origin))
 
     def draw(self, g):
         """ draws objects to the screen """
+        g.background(1, 1, 1)
 
-        # sets the color and opacity of the objects outline
-        # g.stroke(0, 0, 0, 1)
-
-        # sets the thickness of the outline
-        # g.strokeWeight(1)
-
-        # sets the color fill of the object
-        # g.fill(0, 1, 1, 0.75)
-
-        # draws a cirlce
-        # g.circle(self.origin.x, self.origin.y, 20)
+        for i in range(len(self.particles)):
+            self.particles[i].draw(g)

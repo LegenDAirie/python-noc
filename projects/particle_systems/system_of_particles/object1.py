@@ -9,10 +9,10 @@ import math
 
 class Particle(object):
     gravity = Vector(0, .1)
-    def __init__(self, width, height):
+    def __init__(self, width, height, origin):
         self.width = width
         self.height = height
-        self.location = Vector(width / 2, height / 2)
+        self.location = origin
         self.velocity = Vector(randint(-2, 2), randint(-2, 2))
         self.acceleration = Vector(0, 0)
         self.lifeSpan = float(55)
