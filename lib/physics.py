@@ -13,17 +13,23 @@ def applyForce(vector, *arg):
         vector.acceleration += arg[i] / vector.mass
     return vector
 
-def reflectEdges(thing, width, height):
-    """keeps an object inside the screen"""
-    if thing.location.x > width:
-        thing.location.x = width
-        thing.velocity.x *= -1
-    if thing.location.x < 0:
-        thing.location.x = 0
-        thing.velocity.x *= -1
-    if thing.location.y > height:
-        thing.location.y = height
-        thing.velocity.y *= -1
-    if thing.location.y < 0:
-        thing.location.y = 0
-        thing.velocity *= -1
+def reflectEdges(vector, width, height):
+    """keeps an vector inside the screen"""
+    if vector.location.x > width:
+        vector.location.x = width
+        vector.velocity.x *= -1
+    if vector.location.x < 0:
+        vector.location.x = 0
+        vector.velocity.x *= -1
+    if vector.location.y > height:
+        vector.location.y = height
+        vector.velocity.y *= -1
+    if vector.location.y < 0:
+        vector.location.y = 0
+        vector.velocity *= -1
+
+def isDead(thing):
+    if thing.lifeSpan < 0:
+        return True
+    else:
+        return False
