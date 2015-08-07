@@ -15,7 +15,7 @@ class Particle(object):
         self.location = Vector(width / 2, height / 2)
         self.velocity = Vector(randint(-2, 2), randint(-2, 2))
         self.acceleration = Vector(0, 0)
-        self.lifeSpan = float(255)
+        self.lifeSpan = float(55)
         self.mass = 1
 
     def update(self):
@@ -43,4 +43,10 @@ class Particle(object):
         g.fill(0, 1, 1, self.lifeSpan / 255)
 
         # draws a cirlce
-        g.circle(self.location.x, self.location.y, 20)
+        g.circle(self.location.x, self.location.y, 2)
+
+    def isDead(self):
+        if self.lifeSpan < 0:
+            return True
+        else:
+            return False

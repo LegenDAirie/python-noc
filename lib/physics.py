@@ -27,9 +27,3 @@ def reflectEdges(vector, width, height):
     if vector.location.y < 0:
         vector.location.y = 0
         vector.velocity *= -1
-
-def isDead(thing):
-    if thing.lifeSpan < 0:
-        return True
-    else:
-        return False

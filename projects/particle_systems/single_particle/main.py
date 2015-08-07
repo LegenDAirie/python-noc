@@ -11,24 +11,23 @@ class MyDrawing(Sketchy):
 
     def setup(self):
         width, height = [600, 400]
-        self.balls = []
-        # for i in range(0, 1):
-        self.balls.append(Particle(width,height))
+        self.particles = []
+        self.particles.append(Particle(width,height))
         self.size(width, height)
 
     def update(self):
-        for i in range(len(self.balls) -1, -1 ,-1):
-            print len(self.balls)
-            self.balls[i].update()
-            # print self.balls[i]
-            if isDead(self.balls[i]):
-                self.balls.remove(self.balls[i])
-        self.balls.append(Particle(600, 400))
+        for i in range(len(self.particles) -1, -1 ,-1):
+            self.particles[i].update()
+            if self.particles[i].isDead():
+                self.particles.remove(self.particles[i])
+        self.particles.append(Particle(600, 400))
+
 
 
     def draw(self, g):
         g.background(1, 1, 1)
-        for i in range(len(self.balls)):
-            self.balls[i].draw(g)
+        for i in range(len(self.particles)):
+            self.particles[i].draw(g)
+
 
 MyDrawing()
