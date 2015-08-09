@@ -10,7 +10,13 @@ def limit(vector, topSpeed):
 def applyForce(vector, *arg):
     """accumulates all the force vectors together before applying them"""
     for i in range(len(arg)):
-        vector.acceleration += arg[i] / vector.mass
+        # checks to see if the first item is containing a tuple of forces or \
+        # if it is just a force
+        if type(arg[i]) == type((1,)):
+            for force in arg[i]:
+                vector.acceleration += force / vector.mass
+        else:
+            vector.acceleration += arg[i] / vector.mass
     return vector
 
 def reflectEdges(vector, width, height):
