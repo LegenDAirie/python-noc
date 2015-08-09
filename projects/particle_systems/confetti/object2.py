@@ -1,6 +1,7 @@
 from random import randint, random
 from vector import Vector
-from object1 import Circles
+from circles import Circles
+from squares import Squares
 import math
 
 class ParticleSystem(object):
@@ -24,7 +25,12 @@ class ParticleSystem(object):
 
                 # removes particle
                 self.particles.remove(self.particles[i])
-        self.particles.append(Circles(self.width, self.height, self.origin))
+        k = randint(0,1)
+        if k == 0:
+            self.particles.append(Circles(self.width, self.height, self.origin))
+        else:
+            self.particles.append(Squares(self.width, self.height, self.origin))
+
 
     def draw(self, g):
         """ draws objects to the screen """
