@@ -1,6 +1,6 @@
 from random import randint, random
 from vector import Vector
-from object1 import Particle
+from object1 import Circles
 import math
 
 class ParticleSystem(object):
@@ -10,12 +10,12 @@ class ParticleSystem(object):
         self.height = height
         self.origin = Vector(mouseX, mouseY)
         self.particles = []
-        self.particles.append(Particle(width, height, self.origin))
+        self.particles.append(Circles(width, height, self.origin))
 
     def update(self, mouseX, mouseY):
         """updates the objects"""
 
-        # Particle update stuff by iterating backwards
+        # Circles update stuff by iterating backwards
         for i in range(len(self.particles) -1, -1 ,-1):
             self.particles[i].update()
 
@@ -24,7 +24,7 @@ class ParticleSystem(object):
 
                 # removes particle
                 self.particles.remove(self.particles[i])
-        self.particles.append(Particle(self.width, self.height, self.origin))
+        self.particles.append(Circles(self.width, self.height, self.origin))
 
     def draw(self, g):
         """ draws objects to the screen """
