@@ -5,19 +5,22 @@ import math
 
 class Confetti(object):
     """docstring for Confetti"""
+
     gravity = Vector(0, .1)
+    wind = Vector(.2, 0)
+
     def __init__(self, width, height, origin):
         self.width = width
         self.height = height
         self.location = Vector(origin.x, origin.y)
         self.velocity = Vector(randint(-2, 2), randint(-2, 2))
         self.acceleration = Vector(0, 0)
-        self.lifeSpan = float(15)
+        self.lifeSpan = float(30)
         self.mass = 1
 
     def update(self):
         """updates the objects"""
-        applyForce(self, self.gravity)
+        applyForce(self, self.gravity, self.wind)
         self.velocity += self.acceleration
         self.location += self.velocity
         self.lifeSpan -= 1

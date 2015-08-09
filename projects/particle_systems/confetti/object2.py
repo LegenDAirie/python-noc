@@ -5,6 +5,7 @@ from squares import Squares
 import math
 
 class ParticleSystem(object):
+    
     def __init__(self, width, height, mouseX, mouseY):
 
         self.width = width

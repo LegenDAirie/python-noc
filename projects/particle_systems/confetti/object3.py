@@ -4,6 +4,7 @@ from object2 import ParticleSystem
 import math
 
 class SystemOfSystems(object):
+    
     def __init__(self):
 
         self.particleSystems = []

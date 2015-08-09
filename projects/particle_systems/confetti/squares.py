@@ -5,12 +5,7 @@ from confetti import Confetti
 import math
 
 class Squares(Confetti):
-    # def __init__(self, width, height, origin):
-    #     pass
-    # def update(self):
-    #     pass
-    # def draw(self, g):
-    #     pass
+
     def draw(self, g):
         """ draws objects to the screen """
 
