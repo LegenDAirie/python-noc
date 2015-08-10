@@ -1,5 +1,6 @@
 from random import randint, random
 from vector import Vector
+from repeller import Repeller
 from physics import *
 import math
 
@@ -15,8 +16,9 @@ class Confetti(object):
         self.lifeSpan = float(30)
         self.mass = 1
 
-    def update(self):
+    def update(self, repeller):
         """updates the objects"""
+        applyForce(self, repeller.repel(self))
         self.velocity += self.acceleration
         self.location += self.velocity
         self.lifeSpan -= 1

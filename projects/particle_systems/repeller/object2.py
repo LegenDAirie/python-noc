@@ -14,28 +14,28 @@ class ParticleSystem(object):
         self.particles = []
         self.particles.append(Circles(width, height, self.origin))
 
-    def update(self, mouseX, mouseY):
+    def update(self, mouseX, mouseY, repeller):
         """updates the objects"""
 
         # Circles update stuff by iterating backwards
         for i in range(len(self.particles) -1, -1 ,-1):
-            self.particles[i].update()
+            self.particles[i].update(repeller)
 
             # becks to see if the particle is dead
             if self.particles[i].isDead():
 
                 # removes particle
                 self.particles.remove(self.particles[i])
-        k = randint(0,1)
-        if k == 0:
-            self.particles.append(Circles(self.width, self.height, self.origin))
-        else:
-            self.particles.append(Squares(self.width, self.height, self.origin))
 
     def applyforces(self, forces):
         for i in range(len(self.particles)):
             self.particles[i].applyforces(forces)
 
+    def addParticle(self):
+        if randint(0,1) == 0:
+            self.particles.append(Circles(self.width, self.height, self.origin))
+        else:
+            self.particles.append(Squares(self.width, self.height, self.origin))
 
     def draw(self, g):
         """ draws objects to the screen """
