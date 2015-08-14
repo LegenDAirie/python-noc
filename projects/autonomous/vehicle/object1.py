@@ -19,6 +19,9 @@ class Ball(object):
         self.velocity += self.acceleration
         self.location += self.velocity
 
+    def seek(self):
+        pass
+
     def draw(self, g):
         """ draws objects to the screen """
 
@@ -29,7 +32,7 @@ class Ball(object):
         g.strokeWeight(1)
 
         # sets the color fill of the object
-        g.fill(0, 1, 1, 0.75)
+        g.fill(1, 1, 0, 0.75)
 
         # draws a cirlce
         g.circle(self.location.x, self.location.y, 20)
