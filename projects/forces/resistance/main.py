@@ -26,7 +26,7 @@ class Resistance(Sketchy):
             else:
                 applyForce(self.balls[i], self.balls[i].wind, self.balls[i].gravity)
             self.balls[i].update(width, height)
-            checkEdges(self.balls[i], width, height)
+            reflectEdges(self.balls[i], width, height)
 
     def draw(self, g):
         g.background(1, 1, 1)

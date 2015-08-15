@@ -3,24 +3,25 @@ sys.path.append("../../../lib")
 
 from sketchy import Sketchy
 from vector import Vector
-from object1 import Ball
+from vehicle import Vehicle
 
 class MyDrawing(Sketchy):
 
     def setup(self):
         width, height = [600, 400]
-        self.balls = []
+        self.vehicles = []
         for i in range(0, 1):
-            self.balls.append(Ball(width,height))
+            self.vehicles.append(Vehicle(width, height))
         self.size(width, height)
 
     def update(self):
-        for i in range(len(self.balls)):
-            self.balls[i].update()
+        self.mouse = Vector(self.mouseX, self.mouseY)
+        for i in range(len(self.vehicles)):
+            self.vehicles[i].update(self.mouse)
 
     def draw(self, g):
         g.background(1, 1, 1)
-        for i in range(len(self.balls)):
-            self.balls[i].draw(g)
+        for i in range(len(self.vehicles)):
+            self.vehicles[i].draw(g)
 
 MyDrawing()

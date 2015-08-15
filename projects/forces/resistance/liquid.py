@@ -13,7 +13,7 @@ class Liquid(object):
         self.speed = other.velocity.magnitude()
         self.dragMagnitude = self.dragStrength * (self.speed ** 2)
         self.drag = Vector(other.velocity.x, other.velocity.y)
-        self.drag.normalize
+        self.drag = self.drag.normalize()
         self.drag *= self.dragMagnitude
         return self.drag
 

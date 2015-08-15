@@ -8,14 +8,14 @@ class Repeller(object):
 
         self.location = Vector(width / 2, height / 2)
         self.mass = 10
-        self.gravStr = 2
+        self.gravStr = 20
 
     def repel(self, particle):
         """calcules a vector for repulsion"""
 
         self.dir = self.location - particle.location
         self.distance = self.dir.magnitude()
-        self.dir.normalize()
+        self.dir = self.dir.normalize()
         self.strength = -1 * self.gravStr * self.mass * particle.mass / (self.distance ** 2)
         self.dir *= self.strength
         return self.dir

@@ -26,7 +26,7 @@ class Ball(object):
         """makes a gravitational attraction force vector"""
         self.force = self.location - ball.location
         self.distance = self.force.magnitude()
-        self.force.normalize()
+        self.force = self.force.normalize()
         self.strength = (self.g * self.mass * ball.mass) / (self.distance ** 2)
         self.force *= self.strength
         return self.force

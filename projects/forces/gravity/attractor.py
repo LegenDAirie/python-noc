@@ -11,12 +11,12 @@ class Attractor(object):
     def __init__(self, width, height):
         self.location = Vector(width/2, height/2)
         self.mass = 15
-        self.g = .1
+        self.g = 5
 
     def attract(self, ball):
         self.force = self.location - ball.location
         self.distance = self.force.magnitude()
-        self.force.normalize()
+        self.force = self.force.normalize()
         self.strength = (self.g * self.mass * ball.mass) / (self.distance ** 2)
         self.force *= self.strength
         return self.force
