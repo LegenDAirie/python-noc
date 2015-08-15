@@ -35,8 +35,6 @@ class Vehicle(object):
         # apparently just self.disired.normalize() doesnt work
         self.desired = self.desired.normalize()
 
-        # print d
-
         if d < 100:
             k = self.maxSpeed * d / 100
             self.desired *= k
