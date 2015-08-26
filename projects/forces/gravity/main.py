@@ -14,7 +14,7 @@ class Gravity(Sketchy):
         self.a = Attractor(width, height)
 
         self.balls = []
-        for i in range(0, 10):
+        for i in range(0, 100):
             self.balls.append(Ball(width,height))
 
         self.size(width, height)
