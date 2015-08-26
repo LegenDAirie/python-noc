@@ -39,6 +39,7 @@ class Field(object):
             # row horizontal x-axis
             for col in range(len(self.field[row])):
                 self.arrow_len = self.field[row][col].normalize() * self.resolution * .8
+                
                 g.push()
                 # places dots at the center of spaces on the grid
                 g.translate(col * self.resolution + self.resolution / 2, row \
@@ -51,9 +52,6 @@ class Field(object):
                 g.stroke(0, 0, 0, 1)
                 g.strokeWeight(3)
                 g.point(self.arrow_len.x / 2, self.arrow_len.y / 2)
-
-
-
 
                 g.pop()
 

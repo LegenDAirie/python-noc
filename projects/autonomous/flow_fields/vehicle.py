@@ -30,6 +30,14 @@ class Vehicle(object):
         self.acceleration *= 0
 
     def lookup(self, fields):
+        self.wrapAround()
+        column = int(self.location.x / fields.resolution)
+        row = int(self.location.y / fields.resolution)
+        self.steer = fields.field[row][column] * 4
+        limit(self.steer, self.maxForce)
+        applyForce(self, self.steer)
+
+    def wrapAround(self):
         if self.location.x > self.width:
             self.location.x = 0
         if self.location.x < 0:
@@ -37,13 +45,7 @@ class Vehicle(object):
         if self.location.y > self.height:
             self.location.y = 0
         if self.location.y < 0:
-            self.location.y = self.height
-        else:
-            column = int(self.location.x / fields.resolution)
-            row = int(self.location.y / fields.resolution)
-            self.steer = fields.field[row][column] * 4
-            limit(self.steer, self.maxForce)
-        applyForce(self, self.steer)
+            self.location.y = self.height - 1
 
 
     def seek(self, target):
