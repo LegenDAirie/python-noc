@@ -65,9 +65,14 @@ class Vector(object):
         return Vector(self.x * scalar, self.y * scalar)
 
     # a * scalar
-    def __mul__(self, scalar):
+    def __mul__(self, other):
         """ returns a new vector that is the product of the current vector and a scalar using oporators"""
-        return self.mul(scalar)
+        if type(other) == int:
+            return self.mul(other)
+        elif type(other) == type(Vector(0, 0)):
+            return self.dot(other)
+        else:
+            print("not a value type to multiply a vector against")
 
     # a *= scalar
     def mulAccumulate(self, scalar):
@@ -109,6 +114,9 @@ class Vector(object):
         hypotenuse = math.sqrt((self.x ** 2) + (self.y ** 2))
         return hypotenuse
 
+    def distanceBetween(self, vector):
+        return math.sqrt((self.x + vector.x)^2 + (self.y + vector.y)^2)
+
     # normalize()
     def normalize(self):
         """ reduces the vector to unit vector form, a magnitude of 1 """
@@ -124,3 +132,16 @@ class Vector(object):
         self.x *= value / mag
         self.y *= value / mag
         return Vector(self.x, self.y)
+
+    def dot(self, b):
+        """finds the dot product of two vectors and returns that value"""
+        return self.x * b.x + self.y * b.y
+
+    def angleBetween(self, vector):
+        """finds the angle between two vectors, if one vector has no magnitude
+        returns 0"""
+        if vector.magnitude() != 0 and self.magnitude() != 0:
+            return math.acos(self.dot(vector) / (self.magnitude() * vector.magnitude()))
+        else:
+            print("Vector has no magnitude")
+            return 0
