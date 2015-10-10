@@ -13,9 +13,9 @@ class Vehicle(object):
         self.velocity = Vector(0, 0)
         self.acceleration = Vector(0, 0)
         self.predictLoc = Vector(0, 0)
-        self.maxSpeed = 4
-        # self.maxForce = .1
-        # self.mass = 1
+        self.maxSpeed = 5
+        self.maxForce = .1
+        self.mass = 1
 
     def update(self, target, path):
         """updates the objects"""
@@ -32,10 +32,11 @@ class Vehicle(object):
         self.b *= self.a.dot(self.b)
         self.normalPoint = path.start + self.b
         self.distance = self.predictLoc.distanceBetween(self.normalPoint)
+        print("distance is: ", self.distance)
         if self.distance > path.radius:
             self.b = self.b.normalize() * 25
             target = self.normalPoint + self.b
-            seek(target)
+            self.seek(target)
 
 
         self.velocity += self.acceleration

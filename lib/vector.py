@@ -115,7 +115,7 @@ class Vector(object):
         return hypotenuse
 
     def distanceBetween(self, vector):
-        return math.sqrt((self.x + vector.x)^2 + (self.y + vector.y)^2)
+        return math.sqrt(((self.x - vector.x)**2) + ((self.y - vector.y)**2))
 
     # normalize()
     def normalize(self):

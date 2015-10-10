@@ -11,7 +11,7 @@ class MyDrawing(Sketchy):
         width, height = [600, 400]
         self.path = Path(width, height)
         self.vehicles = []
-        for i in range(0, 1):
+        for i in range(0, 20):
             self.vehicles.append(Vehicle(width,height))
         self.size(width, height)
 
