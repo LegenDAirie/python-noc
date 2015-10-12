@@ -67,7 +67,7 @@ class Vector(object):
     # a * scalar
     def __mul__(self, other):
         """ returns a new vector that is the product of the current vector and a scalar using oporators"""
-        if type(other) == int:
+        if type(other) == int or type(other) == float:
             return self.mul(other)
         elif type(other) == type(Vector(0, 0)):
             return self.dot(other)
