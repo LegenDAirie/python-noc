@@ -3,7 +3,8 @@ sys.path.append("../../../lib")
 
 from sketchy import Sketchy
 from vector import Vector
-from object1 import Ball
+from object1 import Particle
+# from object2 import Particle
 
 class MyDrawing(Sketchy):
 
@@ -11,7 +12,7 @@ class MyDrawing(Sketchy):
         width, height = [600, 400]
         self.balls = []
         for i in range(0, 1):
-            self.balls.append(Ball(width,height))
+            self.balls.append(Particle(width,height))
         self.size(width, height)
 
     def update(self):

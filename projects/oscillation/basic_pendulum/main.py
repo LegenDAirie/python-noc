@@ -3,7 +3,7 @@ sys.path.append("../../../lib")
 
 from sketchy import Sketchy
 from vector import Vector
-from object1 import Ball
+from object1 import Pendulum
 
 class MyDrawing(Sketchy):
 
@@ -11,7 +11,7 @@ class MyDrawing(Sketchy):
         width, height = [600, 400]
         self.balls = []
         for i in range(0, 1):
-            self.balls.append(Ball(width,height))
+            self.balls.append(Pendulum(width,height))
         self.size(width, height)
 
     def update(self):
