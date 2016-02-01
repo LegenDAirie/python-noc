@@ -10,20 +10,26 @@ def limit(vector, topSpeed):
 def applyForce(vector, *arg):
     """accumulates all the force vectors together before applying them"""
     for i in range(len(arg)):
-        vector.acceleration += arg[i] / vector.mass
+        # checks to see if the first item is containing a tuple of forces or \
+        # if it is just a force
+        if type(arg[i]) == type((1,)):
+            for force in arg[i]:
+                vector.acceleration += force / vector.mass
+        else:
+            vector.acceleration += arg[i] / vector.mass
     return vector
 
-def reflectEdges(thing, width, height):
-    """keeps an object inside the screen"""
-    if thing.location.x > width:
-        thing.location.x = width
-        thing.velocity.x *= -1
-    if thing.location.x < 0:
-        thing.location.x = 0
-        thing.velocity.x *= -1
-    if thing.location.y > height:
-        thing.location.y = height
-        thing.velocity.y *= -1
-    if thing.location.y < 0:
-        thing.location.y = 0
-        thing.velocity *= -1
+def reflectEdges(vector, width, height):
+    """keeps an vector inside the screen"""
+    if vector.location.x > width:
+        vector.location.x = width
+        vector.velocity.x *= -1
+    if vector.location.x < 0:
+        vector.location.x = 0
+        vector.velocity.x *= -1
+    if vector.location.y > height:
+        vector.location.y = height
+        vector.velocity.y *= -1
+    if vector.location.y < 0:
+        vector.location.y = 0
+        vector.velocity *= -1
